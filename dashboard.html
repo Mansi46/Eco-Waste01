@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4 text-success fw-bold">User Dashboard</h2>
+<div class="row">
+    <!-- Report Waste Issue Form -->
+    <div class="col-md-4">
+        <div class="card shadow mb-4">
+            <div class="card-header bg-success text-white">Report Waste Issue / Request Pickup</div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Issue Type</label>
+                        <select name="issue_type" class="form-select" required>
+                            <option value="" disabled selected>Select an issue...</option>
+                            <option value="Overflowing Bin">Overflowing Bin</option>
+                            <option value="Garbage on Road">Garbage on Road</option>
+                            <option value="Missed Collection">Missed Collection</option>
+                            <option value="Illegal Dumping">Illegal Dumping</option>
+                            <option value="Bulk Pickup Request">Bulk Pickup Request</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description / Location</label>
+                        <textarea name="description" class="form-control" rows="4" required placeholder="Provide details or address..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Submit Report</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Complaint Tracking Table -->
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">My Complaint Tracking</div>
+            <div class="card-body">
+                {% if reports %}
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Issue Type</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for report in reports %}
+                            <tr>
+                                <td>#{{ report.id }}</td>
+                                <td>{{ report.issue_type }}</td>
+                                <td>{{ report.date_reported.strftime('%Y-%m-%d') }}</td>
+                                <td>
+                                    {% if report.status == 'Pending' %}
+                                        <span class="badge bg-danger">Pending</span>
+                                    {% elif report.status == 'In Progress' %}
+                                        <span class="badge bg-warning text-dark">In Progress</span>
+                                    {% else %}
+                                        <span class="badge bg-success">Resolved</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-5">
+                    <p class="text-muted mb-0">No reports submitted yet. Use the form to report an issue.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <h2 class="text-success mb-4 fw-bold text-center">♻️ Waste Awareness & Segregation Guide</h2>
+        
+        <div class="card mb-4 shadow-sm border-0">
+            <div class="card-body bg-light rounded">
+                <h4 class="card-title text-success">Why Segregate Waste?</h4>
+                <p class="card-text mb-0">Proper waste segregation reduces landfill usage, prevents environmental pollution, and allows recyclable materials to be processed efficiently. By separating your waste at the source, you contribute to a cleaner, greener planet.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card border-success mb-3 shadow-sm h-100">
+                    <div class="card-header bg-success text-white text-center fw-bold">Green Bin (Wet Waste)</div>
+                    <div class="card-body">
+                        <ul class="mb-0">
+                            <li>Vegetable peels</li>
+                            <li>Fruit scraps</li>
+                            <li>Cooking oil</li>
+                            <li>Tea leaves & coffee grounds</li>
+                            <li>Leftover food</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-primary mb-3 shadow-sm h-100">
+                    <div class="card-header bg-primary text-white text-center fw-bold">Blue Bin (Dry Waste)</div>
+                    <div class="card-body">
+                        <ul class="mb-0">
+                            <li>Paper & Cardboard</li>
+                            <li>Plastic bottles & containers</li>
+                            <li>Metal cans</li>
+                            <li>Glass bottles</li>
+                            <li>Clean packaging materials</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-danger mb-3 shadow-sm h-100">
+                    <div class="card-header bg-danger text-white text-center fw-bold">Red Bin (Hazardous)</div>
+                    <div class="card-body">
+                        <ul class="mb-0">
+                            <li>Batteries</li>
+                            <li>Medical waste (syringes, bandages)</li>
+                            <li>Sanitary items</li>
+                            <li>E-waste (electronics)</li>
+                            <li>Chemical containers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
