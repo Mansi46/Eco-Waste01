@@ -10,3 +10,4 @@ itsdangerous==2.2.0
 MarkupSafe==2.1.5
 greenlet==3.0.3
 typing_extensions==4.12.2
+gunicorn==21.2.0
