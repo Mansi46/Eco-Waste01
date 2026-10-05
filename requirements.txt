@@ -1,0 +1,4 @@
+Flask==2.3.3
+Flask-SQLAIchemy==3.1.1
+Werkzeug==2.3.7
+guniccrn==21.2.0
